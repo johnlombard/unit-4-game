@@ -13,6 +13,8 @@ var gem1;
 var gem2;
 var gem3;
 var gem4;
+var gemValue = [];
+var userTotalScore = [];
 var wins = 0;
 var losses = 0;
 
@@ -23,73 +25,98 @@ function playGame() {
     getTargetNumber()
     gemNumbers()
     addNumbers()
-    endGame()
-    // if (isFinished) {
-    //     resetGame()
-    // }
+    
 }
 
 //assigns and replaces 
 function getTargetNumber(min, max) {
-   targetNumber = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
-   $("#targetNumber").text("Target Number: " + targetNumber);
+    targetNumber = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+    $("#targetNumber").text("Target Number: " + targetNumber);
 
 };
 
 
-    //assign gem values to their buttons
+//assign gem values to their buttons
 function gemNumbers(min, max) {
-    gem1 = Math.floor(Math.random() * (12 - 1 + 1)) ;
-    gem2 = Math.floor(Math.random() * (12 - 1 + 1)) ;
-    gem3 = Math.floor(Math.random() * (12 - 1 + 1)) ;
-    gem4 = Math.floor(Math.random() * (12 - 1 + 1)) ;
+    gem1 = Math.floor(Math.random() * (13));
+    gem2 = Math.floor(Math.random() * (13));
+    gem3 = Math.floor(Math.random() * (13));
+    gem4 = Math.floor(Math.random() * (13));
+};
+
+function addNumbers() {
+    //click events to add to a variable 
+    
+    //new array
+    $("#gem1").click(function () {
+        console.log(gem1);
+
+        gemValue.push(gem1);
+
+        userTotalScore = gemValue.reduce(function (a, b) { return a + b }, 0);
+
+        $("#scoreNumber").text(userTotalScore);
+        endGame()
+
+    });
+
+    $("#gem2").click(function () {
+        console.log(gem2);
+        gemValue.push(gem2);
+
+        userTotalScore = gemValue.reduce(function (a, b) { return a + b }, 0);
+
+        $("#scoreNumber").text(userTotalScore);
+        endGame()
+    });
+
+    $("#gem3").click(function () {
+        console.log(gem3);
+        gemValue.push(gem3);
+
+        userTotalScore = gemValue.reduce(function (a, b) { return a + b }, 0);
+
+        $("#scoreNumber").text(userTotalScore);
+        endGame()
+    });
+
+    $("#gem4").click(function () {
+        console.log(gem4);
+        gemValue.push(gem4);
+
+        userTotalScore = gemValue.reduce(function (a, b) { return a + b }, 0);
+
+        $("#scoreNumber").text(userTotalScore);
+        endGame()
+    });
+    console.log(userTotalScore);
+    
+};
+
+
+
+function endGame() {
+    if(userTotalScore === targetNumber) {
+        wins++;
+        isFinished = true;
+        $("#wins").text("wins: " + wins);
+        
+        
+    } else if (userTotalScore > targetNumber) {
+        losses++;
+        isFinished = true;
+        $("#losses").text("losses: " +losses);
+    };
+    //stops game
+    if(isFinished === true) {
+        
+    };
 }
 
-function addNumbers (){
-//click events to add to a variable 
-var numbersAdded;
-
-// $("#scoreNumber").text(numbersAdded);
-// $("#gem1").click(function(){
-//     console.log(gem1);
-//     var numbersAdded = new Array
-// });
-
-// // $("#gem1").click(function() {
-// //     console.log(gem1);
-// //     var userTotalScore = new Array ();
-// //     // Crystal value gets pushed to user total score
-// //     crystalValue.push(oneCrystalValue);
-// //     userTotalScore = crystalValue.reduce(function(a,b){  return a+b },0);
-// //     console.log(userTotalScore);
+function resetGame(){
+  
+};
 
 
-}
-
-
-// function endGame() {
-//     if(totalNumbers === targetNumber) {
-//         wins++;
-//         isFinished = true;
-//     } else if (totalNumbers > targetNumber) {
-//         losses++;
-//         isFinished = true;
-//     }
-// }
-
-// function resetGame(){
-//     if
-// }
-
-$("#gem2").click(function(){
-    console.log(gem2);
-});
-$("#gem3").click(function(){
-    console.log(gem3);
-});
-$("#gem4").click(function(){
-    console.log(gem4);
-});
 
 playGame();
-
