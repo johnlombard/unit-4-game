@@ -25,7 +25,7 @@ function playGame() {
     getTargetNumber()
     gemNumbers()
     addNumbers()
-    
+
 }
 
 //assigns and replaces 
@@ -38,15 +38,15 @@ function getTargetNumber(min, max) {
 
 //assign gem values to their buttons
 function gemNumbers(min, max) {
-    gem1 = Math.floor(Math.random() * (13));
-    gem2 = Math.floor(Math.random() * (13));
-    gem3 = Math.floor(Math.random() * (13));
-    gem4 = Math.floor(Math.random() * (13));
+    gem1 = Math.floor(Math.random() * (12) + 1);
+    gem2 = Math.floor(Math.random() * (12) + 1);
+    gem3 = Math.floor(Math.random() * (12) + 1);
+    gem4 = Math.floor(Math.random() * (12) + 1);
 };
 
 function addNumbers() {
     //click events to add to a variable 
-    
+
     //new array
     $("#gem1").click(function () {
         console.log(gem1);
@@ -90,31 +90,40 @@ function addNumbers() {
         endGame()
     });
     console.log(userTotalScore);
-    
+
 };
 
 
 
 function endGame() {
-    if(userTotalScore === targetNumber) {
+    if (userTotalScore === targetNumber) {
         wins++;
         isFinished = true;
-        $("#wins").text("wins: " + wins);
-        
-        
+        $("#wins").text("Wins: " + wins);
+
+
     } else if (userTotalScore > targetNumber) {
         losses++;
         isFinished = true;
-        $("#losses").text("losses: " +losses);
+        $("#losses").text("Losses: " + losses);
     };
     //stops game
-    if(isFinished === true) {
-        
+    if (isFinished === true) {
+        resetGame();
     };
 }
 
-function resetGame(){
-  
+function resetGame() {
+    isFinished = false;
+    userTotalScore = [];
+    gemValue = [];
+    getTargetNumber();
+    gemNumbers();
+    $("#scoreNumber").text("Click crystal to play again!");
+
+    //  $('#gem1').unbind('click').click(function() {
+    //     console.log(gem1);});
+
 };
 
 

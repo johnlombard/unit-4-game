@@ -1,5 +1,5 @@
  body {
-    background-image: url("../images/bananas.png");
+    background-image: url("../images/wood_pattern.png");
     font-family: Georgia, Times, "Times New Roman", serif;
 }
 .row {
@@ -11,7 +11,8 @@
 
 #titleRow {
    
-   background-color: green; 
+   background-color: #8B4513; 
+   border-radius: 25px;
   width: 30%;
     
 }
@@ -25,34 +26,49 @@
     margin: 0 15px;
     position: center;
     text-align: center;
-    /* text-align: center; */
+   
 }
 
 #instructionsRow {
-    background-color: yellow;
-    color: green;
+    background-color: #8B4513;
+    color: white;
+    padding-left: 15px;
+    border-radius: 25px;
 
 }
 
 #targetRow {
-    background-color: green;
+    background-color: #8B4513;
+    color: white;
     margin-right: 15px;
+    border-radius: 25px;
 
+}
+#targetNumber {
+   
+    font-size: 24px;
 }
 
 #winsRow {
-    background-color: aqua;
+    background-color: #8B4513;
+    color: white;
+    border-radius: 25px;
+}
+input {
+    border-radius: 25px;
 }
 
 #scoreRow {
-    background-color: green;
+    background-color: #8B4513;
 color: white;
+border-radius: 25px;
 }
 
 #scoreNumberRow {
-    background-color: green;
+    background-color: #8B4513;
     color: white;
     padding: 25px;
     font-size: 22px;
+    border-radius: 25px;
 }
 
